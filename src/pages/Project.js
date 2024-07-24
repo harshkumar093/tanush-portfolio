@@ -12,17 +12,19 @@ function ProjectForm(props) {
   } = props;
   return (
     <form>
-      <table>
+      <table className="m-3" border={1} cellPadding={10} cellSpacing={0}>
         <tr>
-          <td>Number A: </td>
+          <td className="text-danger">Number A: </td>
           <td>
             <input
-              type="number"
-              value={a}
+              type="text"
+              value={null}
               onChange={(e) => setA(e.target.value)}
+              className="py-1 px-3 m-2 w-100 d-block"
+              placeholder="Enter a value"
             />
           </td>
-          <td>
+          <td className="text-success">
             {a > 0 ? (
               <h1>A is greated than 0</h1>
             ) : (
@@ -31,7 +33,7 @@ function ProjectForm(props) {
           </td>
         </tr>
         <tr>
-          <td>Number B: </td>
+          <td className="bg-dark text-light p-2">Number B: </td>
           <td>
             <input
               type="number"
@@ -39,7 +41,7 @@ function ProjectForm(props) {
               onChange={(e) => setB(e.target.value)}
             />
           </td>
-          <td>
+          <td className="bg-light">
             {b > 0 ? (
               <h1>B is greater than 0</h1>
             ) : b == 0 ? (
@@ -50,7 +52,10 @@ function ProjectForm(props) {
           </td>
         </tr>
       </table>
-      {obj && <img src={obj.img} />}
+      <div>
+        <div></div>
+        {obj && <img class="rounded float-end img-fluid" src={obj.img} />}
+      </div>
     </form>
   );
 }
@@ -84,6 +89,7 @@ export default function Project() {
     <>
       <Header />
       <button
+        className="btn btn-outline-primary m-3"
         onClick={() =>
           obj
             ? setObj(null)
@@ -96,6 +102,22 @@ export default function Project() {
       </button>
       <ProjectForm a={a} b={b} setA={setA} setB={setB} showImg={showImg} />
       <ProjectForm setA={setA} setB={setB} obj={obj} />
+      <div className="row justify-content-around">
+        <div className="col-3 border m-1">A</div>
+        <div className="col-3 border m-1">B</div>
+        <div className="col-3 border m-1">C</div>
+        <div className="col-3 border m-1">D</div>
+        <div className="col-3 border m-1">E</div>
+        <div className="col-3 border m-1">F</div>
+      </div>
+      <div className="row justify-content-around my-3">
+        <div className="col-3 border text-end">1</div>
+        <div className="col-3 border row">
+          <div className="col-8 border text-center">2</div>
+          <div className="col-4 border text-start">3</div>
+        </div>
+        <div className="col-3 border text-center">4</div>
+      </div>
     </>
   );
 }
