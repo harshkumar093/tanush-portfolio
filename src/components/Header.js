@@ -18,7 +18,9 @@ export default function Header() {
         <a href="/contact" style={styles.anchors}>
           Contact
         </a>
-        <a style={styles.anchors}>Project</a>
+        <a href="/project" style={styles.anchors}>
+          Project
+        </a>
         <a style={styles.anchors}>Personal</a>
       </div>
       <div style={{ padding: "0px 10px" }}>
